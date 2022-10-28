@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Git Pocket</string>
+    <string name="login_screen_subHeading">Github Content in Your Phone</string>
+    <string name="github_username_hint_text">Enter Github Username</string>
+    <string name="cd_login_button">Proceed to Login</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cd_menu">Menu</string>
+    <string name="cd_home_bg">Man operating Laptop with a leaderboard behind</string>
+    <string name="shared_preference_key">Git Pocket PF Key</string>
+    <string name="sp_github_key">Github Username</string>
+</resources>

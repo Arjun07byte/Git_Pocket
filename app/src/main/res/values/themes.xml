@@ -1,0 +1,41 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.DaggerFirstMain" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/login_screen_bg</item>
+        <item name="colorPrimaryVariant">@color/login_screen_bg</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/login_screen_text_subheading</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:navigationBarColor">@color/login_screen_bg</item>
+        <item name="android:fontFamily">@font/font_rubik_medium</item>
+        <item name="fontFamily">@font/font_rubik_medium</item>
+        <item name="android:windowBackground">@drawable/default_background</item>
+    </style>
+
+    <style name="Theme.DaggerFirstLogin" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/login_screen_bg</item>
+        <item name="colorPrimaryVariant">@color/login_screen_bg</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/login_screen_text_subheading</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:navigationBarColor">@color/login_screen_bg</item>
+        <item name="android:fontFamily">@font/font_rubik_medium</item>
+        <item name="fontFamily">@font/font_rubik_medium</item>
+    </style>
+
+    <style name="Theme.DaggerFirstHome" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/login_screen_bg</item>
+        <item name="colorPrimaryVariant">@color/login_screen_bg</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/login_screen_text_subheading</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:navigationBarColor">@color/home_screen_bottom_sheet_color</item>
+        <item name="android:fontFamily">@font/font_rubik_medium</item>
+        <item name="fontFamily">@font/font_rubik_medium</item>
+    </style>
+</resources>

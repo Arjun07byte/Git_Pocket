@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default Solid Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <!-- Login Screen Colors -->
+    <color name="login_screen_bg">#FF440099</color>
+    <color name="login_screen_text_heading">#FFFFFFFF</color>
+    <color name="login_screen_text_subheading">#80FFFFFF</color>
+    <color name="login_screen_edit_text_hint">#FF2389F9</color>
+
+    <!-- Home Screen Colors -->
+    <color name="home_screen_bg">#FF440099</color>
+    <color name="home_screen_text_heading">#FFFFFF</color>
+    <color name="home_screen_edit_text_hint">#2389F9</color>
+    <color name="home_screen_text_blue_color">#067AF8</color>
+    <color name="home_screen_secondary_color">#96000000</color>
+    <color name="home_screen_githubEmoji_box">#FFB388FF</color>
+    <color name="home_screen_bottom_sheet_color">#EFF1FE</color>
+
+</resources>
