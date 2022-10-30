@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@color/login_screen_bg">
-    
-    <RelativeLayout
-        xmlns:tools="http://schemas.android.com/tools"
+
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".LoginActivity"
-        android:paddingBottom="15dp">
+        android:paddingBottom="15dp"
+        tools:context=".LoginActivity">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="96dp"
+            android:fontFamily="@font/font_rubik_medium"
             android:text="@string/app_name"
             android:textColor="@color/login_screen_text_heading"
-            android:textSize="30sp"
-            android:layout_centerHorizontal="true"
-            android:fontFamily="@font/font_rubik_medium"
-            android:layout_marginTop="96dp"/>
+            android:textSize="30sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -31,35 +31,61 @@
             android:textColor="@color/login_screen_text_subheading"
             android:textSize="16sp" />
 
+        <TextView
+            android:id="@+id/tv_error_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="310dp"
+            android:text="@string/invalid_user_text"
+            android:layout_centerHorizontal="true"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"
+            android:padding="10dp"
+            android:visibility="invisible"/>
+
         <EditText
+            android:id="@+id/editText_github_username"
             android:layout_width="match_parent"
             android:layout_height="64dp"
-            android:background="@drawable/login_button_bg"
-            android:layout_alignBottom="@id/button_login"
-            android:layout_marginBottom="241dp"
+            android:layout_alignBottom="@id/button_login_git_user"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:textColor="@color/login_screen_edit_text_hint"
+            android:layout_marginBottom="241dp"
+            android:autofillHints="name"
+            android:background="@drawable/login_button_bg"
+            android:fontFamily="@font/font_rubik_medium"
+            android:gravity="center_vertical"
+            android:hint="@string/github_username_hint_text"
+            android:imeOptions="actionDone"
+            android:inputType="textPersonName"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:hint="@string/github_username_hint_text"
-            android:fontFamily="@font/font_rubik_medium"
-            android:textSize="14sp"
-            android:gravity="center_vertical"
+            android:textColor="@color/login_screen_edit_text_hint"
             android:textColorHint="@color/login_screen_edit_text_hint"
-            android:autofillHints="name"
-            android:inputType="textPersonName"
-            android:imeOptions="actionDone"/>
-        
+            android:textSize="14sp" />
+
         <ImageView
-            android:id="@+id/button_login"
+            android:id="@+id/button_login_git_user"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/ic_github"
-            android:background="@drawable/login_button_bg"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="376dp"
-            android:elevation="10dp"
-            android:contentDescription="@string/cd_login_button" />
+            android:background="@drawable/login_button_bg"
+            android:clickable="true"
+            android:contentDescription="@string/cd_login_button"
+            android:focusable="true"
+            android:src="@drawable/ic_github" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/progress_bar_login"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="376dp"
+            android:background="@drawable/login_button_bg"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/progress_login"
+            android:visibility="invisible"/>
     </RelativeLayout>
 </ScrollView>
