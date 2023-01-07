@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.daggerfirst.models.UserInfoSuccessResponse
-import com.example.daggerfirst.repository.LoginRepositoryInst
+import com.example.daggerfirst.repository.LoginRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val repositoryInstance: LoginRepositoryInst
+    private val repositoryInstance: LoginRepository
 ) : ViewModel() {
     private val loginStates: MutableLiveData<UserInfoSuccessResponse?> = MutableLiveData()
 

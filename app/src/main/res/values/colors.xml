@@ -19,4 +19,21 @@
     <color name="home_screen_githubEmoji_box">#FFB388FF</color>
     <color name="home_screen_bottom_sheet_color">#EFF1FE</color>
 
+    <!-- Home Fragment Colors -->
+    <color name="user_follow_count">#4D000000</color>
+    <color name="user_name_heading">#000000</color>
+    <color name="user_repo_count">#067AF8</color>
+    <color name="user_forks_count">#2389F9</color>
+    <color name="user_liked_repo">#FFC5C5</color>
+    <color name="user_repo_info_subheading">#80000000</color>
+    <color name="lang_tile_1">#B3FFAE</color>
+    <color name="lang_tile_2">#38E54D</color>
+    <color name="lang_tile_3">#98A8F8</color>
+    <color name="lang_tile_4">#FF884B</color>
+    <color name="lang_tile_5">#06283D</color>
+
+    <color name="sideBarItemSelectedColor">#CC32198E</color>
+    <color name="sideBarItemDeSelectedColor">#99000000</color>
+
+    <color name="searchFragmentEditTextColor">#80000000</color>
 </resources>

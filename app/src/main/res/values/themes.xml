@@ -1,5 +1,6 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.DaggerFirstMain" parent="Theme.AppCompat.DayNight.NoActionBar">
+<resources>
+
+    <style name="Theme.DaggerFirstMain" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/login_screen_bg</item>
         <item name="colorPrimaryVariant">@color/login_screen_bg</item>
         <item name="colorOnPrimary">@color/white</item>
@@ -10,10 +11,10 @@
         <item name="android:navigationBarColor">@color/login_screen_bg</item>
         <item name="android:fontFamily">@font/font_rubik_medium</item>
         <item name="fontFamily">@font/font_rubik_medium</item>
-        <item name="android:windowBackground">@drawable/default_background</item>
+        <item name="android:windowBackground">@drawable/bg_default</item>
     </style>
 
-    <style name="Theme.DaggerFirstLogin" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="Theme.DaggerFirstLogin" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/login_screen_bg</item>
         <item name="colorPrimaryVariant">@color/login_screen_bg</item>
         <item name="colorOnPrimary">@color/white</item>
@@ -37,5 +38,16 @@
         <item name="android:navigationBarColor">@color/home_screen_bottom_sheet_color</item>
         <item name="android:fontFamily">@font/font_rubik_medium</item>
         <item name="fontFamily">@font/font_rubik_medium</item>
+    </style>
+
+    <style name="Theme.CustomChipTheme" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="chipBackgroundColor">@color/color_selected_filter</item>
+        <item name="chipStrokeColor">@color/color_selected_filter</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="android:textColor">@color/color_selected_filter_text</item>
+        <item name="checkedIcon">@null</item>
+        <item name="checkedIconVisible">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="rippleColor">@android:color/transparent</item>
     </style>
 </resources>

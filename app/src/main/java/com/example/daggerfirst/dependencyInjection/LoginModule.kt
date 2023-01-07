@@ -1,7 +1,7 @@
 package com.example.daggerfirst.dependencyInjection
 
 import com.example.daggerfirst.api.LoginApiRef
-import com.example.daggerfirst.repository.LoginRepositoryInst
+import com.example.daggerfirst.repository.LoginRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,7 +25,7 @@ object LoginModule {
 
     @Provides
     @Singleton
-    fun provideLoginRepository(apiRef: LoginApiRef): LoginRepositoryInst {
-        return LoginRepositoryInst(apiRef)
+    fun provideLoginRepository(apiRef: LoginApiRef): LoginRepository {
+        return LoginRepository(apiRef)
     }
 }

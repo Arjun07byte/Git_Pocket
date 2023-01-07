@@ -1,15 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".fragments.HomeFragment"
-    android:background="@color/home_screen_bottom_sheet_color">
+    android:background="#00000000">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- Relative Layout containing the main content -->
+    <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/layout_main_fragment_info"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment"
-        android:layout_gravity="center"/>
+        android:background="@color/home_screen_bottom_sheet_color"
+        android:visibility="gone"
+        tools:context=".fragments.HomeFragment">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/tv_home_userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/tv_home_user_followCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_home_userName"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/user_follow_count" />
+
+        <TextView
+            android:id="@+id/tv_home_user_repoCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_home_user_followCount"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/user_repo_count" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_user_repo_items"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_home_user_repoCount"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp" />
+    </RelativeLayout>
+
+    <!-- Relative Layout containing the loading animation view -->
+    <LinearLayout
+        android:id="@+id/layout_main_fragment_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible"
+        android:gravity="center">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnim_home_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/anim_home_loading"
+            app:lottie_repeatMode="restart" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pulling Info..."
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please Wait"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</RelativeLayout>

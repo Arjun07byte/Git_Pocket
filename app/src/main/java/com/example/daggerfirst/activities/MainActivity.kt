@@ -1,8 +1,9 @@
-package com.example.daggerfirst
+package com.example.daggerfirst.activities
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.daggerfirst.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

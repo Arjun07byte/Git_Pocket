@@ -16,7 +16,7 @@
         android:theme="@style/Theme.DaggerFirstMain"
         tools:targetApi="31">
         <activity
-            android:name=".HomeActivity"
+            android:name=".activities.HomeActivity"
             android:exported="false"
             android:theme="@style/Theme.DaggerFirstHome"
             android:screenOrientation="portrait">
@@ -25,7 +25,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.DaggerFirstMain"
             android:screenOrientation="portrait">
@@ -39,7 +39,7 @@
                 android:value=""/>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:exported="false"
             android:theme="@style/Theme.DaggerFirstLogin"
             android:screenOrientation="portrait"

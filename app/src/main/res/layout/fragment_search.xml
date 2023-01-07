@@ -1,14 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/home_screen_bottom_sheet_color"
     tools:context=".fragments.SearchFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <EditText
+        android:id="@+id/editText_searchQuery"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/user_rv_item_bg"
+        android:hint="Enter User Name"
+        android:padding="15dp"
+        android:textColor="@color/searchFragmentEditTextColor"
+        android:textCursorDrawable="@color/black"
+        android:textSize="16sp" />
 
-</FrameLayout>
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/layout_chipGroupSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editText_searchQuery"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        app:selectionRequired="true"
+        app:singleLine="false"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_userSearch"
+            style="@style/Theme.CustomChipTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Users"
+            android:textAppearance="@style/Theme.CustomChipTheme"
+            app:chipEndPadding="8dp"
+            app:chipMinHeight="36dp"
+            app:chipStartPadding="8dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_TopicSearch"
+            style="@style/Theme.CustomChipTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Topics"
+            android:textAppearance="@style/Theme.CustomChipTheme"
+            app:chipEndPadding="8dp"
+            app:chipMinHeight="36dp"
+            app:chipStartPadding="8dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_orgSearch"
+            style="@style/Theme.CustomChipTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Organizations"
+            android:textAppearance="@style/Theme.CustomChipTheme"
+            app:chipEndPadding="8dp"
+            app:chipMinHeight="36dp"
+            app:chipStartPadding="8dp" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_user_search_result"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/layout_chipGroupSearch"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/layout_searchNoResults"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_chipGroupSearch"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/no_results"
+            app:lottie_repeatMode="restart" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="No Results Found"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Try other Keywords"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_searchInProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_chipGroupSearch"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnim_home_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/anim_home_loading"
+            app:lottie_repeatMode="restart" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pulling Info..."
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please Wait"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+</RelativeLayout>
