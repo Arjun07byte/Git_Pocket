@@ -1,8 +1,6 @@
 package com.example.daggerfirst.api
 
-import com.example.daggerfirst.models.SearchUserResponse
-import com.example.daggerfirst.models.UserInfoSuccessResponse
-import com.example.daggerfirst.models.UserRepoInfoResponse
+import com.example.daggerfirst.models.*
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -26,10 +24,32 @@ interface HomeApiRef {
         @Query("q")
         userName: String,
         @Query("per_page")
-        perPage: Int = 10,
+        perPage: Int = 8,
         @Query("page")
         pageNumber: Int,
         @Query("sort")
         sortBy: String = "followers"
     ): Response<SearchUserResponse>
+
+    @GET("search/repositories")
+    suspend fun searchRepo(
+        @Query("q")
+        userName: String,
+        @Query("per_page")
+        perPage: Int = 8,
+        @Query("page")
+        pageNumber: Int,
+        @Query("sort")
+        sortBy: String = "stars"
+    ): Response<SearchRepoResponse>
+
+    @GET("orgs/{orgName}/repos")
+    suspend fun searchOrg(
+        @Path("orgName")
+        orgName: String,
+        @Query("per_page")
+        perPage: Int = 8,
+        @Query("page")
+        pageNumber: Int
+    ): Response<SearchOrgResponse>
 }

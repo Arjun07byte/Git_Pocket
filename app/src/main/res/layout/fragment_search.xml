@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/home_screen_bottom_sheet_color"
+    android:orientation="vertical"
     tools:context=".fragments.SearchFragment">
 
     <EditText
@@ -20,13 +21,14 @@
         android:padding="15dp"
         android:textColor="@color/searchFragmentEditTextColor"
         android:textCursorDrawable="@color/black"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        android:inputType="textPersonName"
+        android:autofillHints="name"/>
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/layout_chipGroupSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editText_searchQuery"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
         app:selectionRequired="true"
@@ -46,11 +48,11 @@
             app:chipStartPadding="8dp" />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chip_TopicSearch"
+            android:id="@+id/chip_repoSearch"
             style="@style/Theme.CustomChipTheme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Topics"
+            android:text="Repos"
             android:textAppearance="@style/Theme.CustomChipTheme"
             app:chipEndPadding="8dp"
             app:chipMinHeight="36dp"
@@ -69,22 +71,47 @@
 
     </com.google.android.material.chip.ChipGroup>
 
+    <LinearLayout
+        android:id="@+id/layout_orgDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="18dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imgView_orgLogo"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/empty_circle"/>
+
+        <TextView
+            android:id="@+id/tv_orgName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Organization"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_user_search_result"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_below="@id/layout_chipGroupSearch"
-        android:layout_alignParentBottom="true"
         android:layout_margin="15dp"
+        android:layout_weight="1"
         android:visibility="gone" />
 
     <LinearLayout
         android:id="@+id/layout_searchNoResults"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/layout_chipGroupSearch"
-        android:layout_alignParentBottom="true"
+        android:layout_height="0dp"
         android:layout_margin="15dp"
+        android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="visible">
@@ -116,10 +143,9 @@
     <LinearLayout
         android:id="@+id/layout_searchInProgress"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/layout_chipGroupSearch"
-        android:layout_alignParentBottom="true"
+        android:layout_height="0dp"
         android:layout_margin="15dp"
+        android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical"
         android:visibility="gone">
@@ -149,4 +175,4 @@
     </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

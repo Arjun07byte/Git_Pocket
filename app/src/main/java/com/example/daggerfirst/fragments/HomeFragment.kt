@@ -72,7 +72,7 @@ class HomeFragment : Fragment() {
             }
         }
 
-        myViewModel.repoSearchResultStates.observe(this.viewLifecycleOwner) {
+        myViewModel.signedInUserRepoResultStates.observe(this.viewLifecycleOwner) {
             if (it != null) {
                 tvUserRepoCount.text = view.context.getString(R.string.repoCount_text, it.size)
                 userRepoAdapter.submitDifferList(it)

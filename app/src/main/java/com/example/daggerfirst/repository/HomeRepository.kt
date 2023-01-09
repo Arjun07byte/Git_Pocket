@@ -10,4 +10,8 @@ class HomeRepository @Inject constructor(
     suspend fun getUserInfo(userName: String) = homeApiRef.getUserDetails(userName)
     suspend fun searchUser(userName: String, pageNumber: Int) =
         homeApiRef.searchUser(userName, pageNumber = pageNumber)
+    suspend fun searchRepo(repoSearchQuery: String, pageNumber: Int) =
+        homeApiRef.searchRepo(repoSearchQuery, pageNumber = pageNumber)
+    suspend fun searchOrg(orgNameQuery: String, pageNumber: Int) =
+        homeApiRef.searchOrg(orgNameQuery, pageNumber = pageNumber)
 }

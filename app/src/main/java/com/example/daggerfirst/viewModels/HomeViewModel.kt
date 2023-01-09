@@ -1,11 +1,9 @@
 package com.example.daggerfirst.viewModels
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.daggerfirst.models.UserInfoSuccessResponse
-import com.example.daggerfirst.models.UserRepoInfoResponse
+import com.example.daggerfirst.models.*
 import com.example.daggerfirst.repository.HomeRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
@@ -16,14 +14,16 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val repositoryInstance: HomeRepository
 ) : ViewModel() {
-    val repoSearchResultStates: MutableLiveData<UserRepoInfoResponse?> = MutableLiveData()
+    val signedInUserRepoResultStates: MutableLiveData<UserRepoInfoResponse?> = MutableLiveData()
     val signedInUserInfoResultStates: MutableLiveData<UserInfoSuccessResponse?> = MutableLiveData()
     val userSearchResultStates: MutableLiveData<List<UserInfoSuccessResponse?>> = MutableLiveData()
+    val repoSearchResultStates: MutableLiveData<List<SearchRepoResponseItem?>?> = MutableLiveData()
+    val orgSearchResultStates: MutableLiveData<List<SearchRepoResponseItem?>?> = MutableLiveData()
 
     fun getUserRepos(userName: String) {
         viewModelScope.launch {
             val repoSearchResult = repositoryInstance.getUserRepos(userName)
-            repoSearchResultStates.postValue(handleRepoSearchResponses(repoSearchResult))
+            signedInUserRepoResultStates.postValue(handleRepoSearchResponses(repoSearchResult))
         }
     }
 
@@ -46,15 +46,12 @@ class HomeViewModel @Inject constructor(
         return if (userInfoResult.isSuccessful) {
             userInfoResult.body()
         } else {
-            Log.e(">>", userInfoResult.raw().message)
             null
         }
     }
 
     fun searchUser(userName: String, pageNumber: Int) {
-        if (viewModelScope.isActive) {
-            viewModelScope.coroutineContext[Job]?.cancelChildren();
-        }
+        cancelAllSearch()
 
         viewModelScope.launch {
             delay(1000)
@@ -69,5 +66,42 @@ class HomeViewModel @Inject constructor(
                 userSearchResultStates.postValue(fetchedUserList)
             }
         }
+    }
+
+    fun searchRepo(repoSearchQuery: String, pageNumber: Int) {
+        cancelAllSearch()
+
+        viewModelScope.launch {
+            delay(1000)
+            val repoSearchResult = repositoryInstance.searchRepo(repoSearchQuery, pageNumber)
+            repoSearchResultStates.postValue(handleSearchRepoInfoResponses(repoSearchResult))
+        }
+    }
+
+    private fun handleSearchRepoInfoResponses(repoInfoResult: Response<SearchRepoResponse>): List<SearchRepoResponseItem?>? {
+        return if (repoInfoResult.isSuccessful) {
+            repoInfoResult.body()?.items
+        } else {
+            null
+        }
+    }
+
+    fun searchOrg(orgNameQuery: String, pageNumber: Int) {
+        cancelAllSearch()
+
+        viewModelScope.launch {
+            delay(1000)
+            val orgSearchResult = repositoryInstance.searchOrg(orgNameQuery, pageNumber)
+            orgSearchResultStates.postValue(handleSearchOrgInfoResponses(orgSearchResult))
+        }
+    }
+
+    private fun handleSearchOrgInfoResponses(orgSearchResult: Response<SearchOrgResponse>): List<SearchRepoResponseItem?>? {
+        return if (orgSearchResult.isSuccessful) orgSearchResult.body() else null
+    }
+
+    fun cancelAllSearch() {
+        if (viewModelScope.isActive) viewModelScope.coroutineContext[Job]?.cancelChildren()
+
     }
 }
